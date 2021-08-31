@@ -4,11 +4,11 @@
   "description": "davids.id source code",
   "scripts": {
     "build": "npm run fresh & npm run build:site & npm run build:css",
-    "build:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css --minify",
+    "build:css": "tailwindcss -i ./src/assets/app.css -o ./docs/css/app.css --minify",
     "build:site": "eleventy",
-    "fresh": "rm -rf output",
+    "fresh": "rm -rf docs",
     "dev": "npm run fresh & eleventy --serve & npm run dev:css",
-    "dev:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css --watch --minify"
+    "dev:css": "tailwindcss -i ./src/assets/app.css -o ./docs/css/app.css --watch --minify"
   },
   "keywords": [
     "portfolio",

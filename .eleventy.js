@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   return {
     passthroughFileCopy: true,
     dir: {
-      output: 'output',
+      output: 'docs',
       input: 'src/pages',
       layouts: '../layouts',
       includes: '../includes',
