@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "davids.id source code",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css",
+    "build": "npm run fresh & npm run build:site & npm run build:css",
+    "build:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css --minify",
     "build:site": "eleventy",
     "fresh": "rm -rf output",
     "dev": "npm run fresh & eleventy --serve & npm run dev:css",
