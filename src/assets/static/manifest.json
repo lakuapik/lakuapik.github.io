@@ -1,0 +1,21 @@
+{
+  "name": "Lakuapik Portfolio",
+  "short_name": "Lakuapik",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#26333b",
+  "orientation": "portrait",
+  "background_color": "#26333b",
+  "icons": [
+    {
+      "src": "img/logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

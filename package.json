@@ -1,0 +1,22 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "davids.id source code",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css",
+    "build:site": "eleventy",
+    "fresh": "rm -rf output",
+    "dev": "npm run fresh & eleventy --serve & npm run dev:css",
+    "dev:css": "tailwindcss -i ./src/assets/app.css -o ./output/css/app.css --watch --minify"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-site"
+  ],
+  "author": "David Adi Nugroho <davidadi216@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "tailwindcss": "^2.2.9"
+  }
+}
