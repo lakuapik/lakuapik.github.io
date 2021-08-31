@@ -7,12 +7,11 @@ module.exports = {
     extend: {
       colors: {
         greyhound: '#26333b',
-        whitehouse: '#cacaca',
+        whitehouse: '#aeaeae',
       },
       fontFamily: {
         'body': ['Ubuntu'],
         'ubuntu': ['Ubuntu'],
-        'fira': ['"Fira Sans"'],
       }
     }
   },
