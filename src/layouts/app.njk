@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#26333b">
-    <meta name="description" content="David Adi Nugroho personal site">
-    <meta property="og:title" content="Davids Site" />
-    <meta property="og:image" content="/img/logo_192.png" />
-    <meta property="og:description" content="David Adi Nugroho personal site" />
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-    <link rel="icon" sizes="192x192" href="/img/logo_192.png">
+    <meta name="theme-color" content="#111827"/>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon-32x32.png">
+    <link rel="stylesheet" href="{{ '/css/app.css' | assetUrl }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cantarell&display=swap">
     <link rel="manifest" href="/manifest.json">
-    <link defer rel="stylesheet" href="/css/app.css">
-    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
-    <title>{{ title }}</title>
+    <title>{{ config.app.name }} - {{ title or renderData.title }}</title>
+    {# SEO #}
+    <meta name="robots" content="index, follow" />
+    <meta name="title" content="{{ (title or renderData.title or config.app.title) }}">
+    <meta name="description" content="{{ (description or renderData.description or config.app.desc) }}">
+    <meta property="og:title" content="{{ (title or renderData.title or config.app.title) }}"/>
+    <meta property="og:description" content="{{ (description or renderData.description or config.app.desc) }}" />
+    <meta property="og:url" content="{{ page.url }}" />
+    <meta property="og:image" content="{{ (cover or renderData.cover or config.app.ogImage) }}" />
+    {# END SEO #}
+    {% block before_head %} {% endblock %}
   </head>
-  <body class="bg-greyhound text-whitehouse font-ubuntu">
-    <div class="max-w-2xl mx-auto mt-4 px-4 py-8">
-      {% include 'header.html' %}
-      <div class="mt-8">{{ content | safe }}</div>
-    </div>
+  <body class="text-black bg-white dark:bg-gray-900 dark:text-gray-200">
+    {% include 'header.njk' %}
+    <main class="w-full max-w-screen-md px-4 mx-auto mt-8">
+      {% block main %} {{ content | safe }} {% endblock %}
+    </main>
+    {% include 'footer.njk' %}
+    <script defer src="{{ '/js/app.js' | assetUrl }}"></script>
+    <script defer src="https://cdn.statically.io/libs/alpinejs/3.4.0/cdn.min.js"></script>
   </body>
 </html>
