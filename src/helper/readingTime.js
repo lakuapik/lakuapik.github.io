@@ -10,7 +10,7 @@ module.exports = function readingTime(
       : postOrContent.templateContent;
 
   if (!htmlContent) {
-    return `0 ${printSeconds ? 'detik' : 'menit'}`;
+    return `0 ${printSeconds ? 'second' : 'minute'}`;
   }
 
   const content = htmlContent.replace(/(<([^>]+)>)/gi, '');
@@ -20,7 +20,7 @@ module.exports = function readingTime(
   if (printSeconds === false) {
     const min = Math.ceil(count / speed);
 
-    return raw === false ? `${min} menit` : min;
+    return raw === false ? `${min} minute` : min;
   }
 
   const min = Math.floor(count / speed);
@@ -28,6 +28,5 @@ module.exports = function readingTime(
 
   if (raw === true) return min * 60 + sec;
 
-  return min > 0
-    ? `${min} menit, ${sec} detik` : `${min} detik`;
+  return min > 0 ? `${min} minute, ${sec} second` : `${min} second`;
 };

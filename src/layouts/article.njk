@@ -1,0 +1,24 @@
+{% extends './app.njk' %}
+
+{% block main %}
+
+  <h1 class="mt-8 text-2xl font-bold md:text-4xl">
+    {{ renderData.title or title }}
+  </h1>
+
+  <p class="mt-2 text-md">
+    {{ date | datesify('d MMMM YYYY') | lowercase }} &nbsp;
+    • &nbsp; {{ content | readTime }} &nbsp;
+    • &nbsp; <a href="#" class="underline">{{ category }}</a>
+  </p>
+
+  <article class="max-w-screen-md mx-auto mt-8 mb-16 prose dark:prose-dark sm:prose-lg lg:prose-xl lg:mt-14 md:mt-8">
+    {% if renderData.cover or cover %}
+      <img class="mx-auto object-fit rounded-lg grayscale w-full" src="{{ cover }}" />
+    {% endif %}
+
+    {{ content | safe }}
+  </article>
+
+
+{% endblock %}

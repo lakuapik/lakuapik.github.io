@@ -3,13 +3,7 @@ const {spacing, colors } = require('tailwindcss/defaultTheme');
 module.exports = {
   mode: 'jit',
   darkMode: 'class',
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.{html,njk,md}'],
-    options: {
-      safelist: ['dark'], //specific classes
-    },
-  },
+  content: ['./src/**/*.{html,njk,md}'],
   theme: {
     extend: {
       fontFamily: {

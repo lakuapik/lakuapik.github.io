@@ -3,7 +3,9 @@ const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc')
 const htmlmin = require('html-minifier');
 const timezone = require('dayjs/plugin/timezone')
+const assetUrl = require('./src/helper/assetUrl');
 const readingTime = require('./src/helper/readingTime');
+const staticallyImg = require('./src/helper/staticallyImg');
 const UserConfig = require('@11ty/eleventy/src/UserConfig');
 
 dayjs.extend(utc);
@@ -24,9 +26,9 @@ module.exports = (e11) => {
   e11.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath && outputPath.endsWith('.html')) {
       return htmlmin.minify(content, {
-        useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        useShortDoctype: true,
+        collapseWhitespace: true,
       });
     }
     return content;
@@ -34,23 +36,21 @@ module.exports = (e11) => {
 
   e11.addShortcode('lastUpdate', () => now);
 
+  e11.addFilter('datesify', (val, format) => dayjs(val).tz(tz).format(format));
+
   e11.addFilter('dateDMY', (val) => dayjs(val).tz(tz).format('D MMM YYYY'));
 
   e11.addFilter('readTime', (val) => readingTime(val, { speed: 200 }));
 
   e11.addFilter('jsonify', (val) => JSON.stringify(val));
 
-  e11.addFilter('assetUrl', (url) => {
-    const [urlPart, paramPart] = url.split('?');
-    const params = new URLSearchParams(paramPart || '');
-    const rUrl = (urlPart.charAt(0) == '/') ? urlPart.substring(1) : urlPart;
-    const fileStats = fs.statSync(`./src/assets/${rUrl}`);
-    params.set('v', new Date(fileStats.mtime).getTime());
-    return `${urlPart}?${params}`;
-  });
+  e11.addFilter('lowercase', (val) => String(val).toLowerCase());
+
+  e11.addFilter('assetUrl', (url) => assetUrl(url));
+
+  e11.addFilter('staticallyImg', (url, width = '') => staticallyImg(url, width));
 
   return {
-    passthroughFileCopy: true,
     dir: {
       output: 'docs',
       input: 'src/pages',
@@ -58,6 +58,7 @@ module.exports = (e11) => {
       includes: '../includes',
       data: '../data',
     },
+    passthroughFileCopy: true,
     markdownTemplateEngine: 'njk',
   };
 
