@@ -23,9 +23,33 @@ description: see david adi nugroho pieces.
     {% for article in collections.article %}
       <li class="text-lg list-disc">
         <a class="underline" href="{{ article.url }}">
-          {{ article.date | datesify('d MMM YY') | lowercase }} - {{ article.data.title }}
+          {{ article.data.title }}
         </a>
       </li>
     {% endfor %}
+  </ul>
+</section>
+
+
+<section>
+  <h2 class="mt-12 text-xl font-bold md:text-2xl">
+    🌿️ others
+  </h2>
+  <ul class="mt-4 ml-6">
+    <li class="text-lg list-disc">
+      <a class="underline" href="https://davidadinugroho.wordpress.com">
+        davidadinugroho.wordpress.com
+      </a>
+    </li>
+    <li class="text-lg list-disc">
+      <a class="underline" href="https://medium.com/@lakuapik">
+        articles on medium.com
+      </a>
+    </li>
+    <li class="text-lg list-disc">
+      <a class="underline" href="https://dev.to/lakuapik">
+        lakuapik on dev.to
+      </a>
+    </li>
   </ul>
 </section>

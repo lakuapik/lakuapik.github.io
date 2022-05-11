@@ -30,12 +30,4 @@ that are not listed inside the profile got disabled.
 
 ...
 
-<!-- for me, i group my extensions based on what programming language i currently code in. -->
-
-<!-- one thing that missing from this extension is the ability to apply multiple profile at once. -->
-
-<!-- see list of vscode-extensions i currently use [here](pieces/vscode-extension). -->
-
-<!-- that being said, now i just need to toggle the profile i want whenever i like. -->
-
 hope this helps.
