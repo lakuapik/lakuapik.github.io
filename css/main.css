@@ -3,3 +3,12 @@
 :root {
   --oh-hi: 'i use arch btw';
 }
+
+body {
+  margin: 0px auto;
+  max-width: 48rem;
+}
+
+hgroup > p {
+  margin-top: 0.75rem;
+}
