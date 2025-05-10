@@ -1,0 +1,24 @@
+{
+  "name": "Davids.id",
+  "display": "fullscreen",
+  "start_url": "/",
+  "short_name": "Davids",
+  "theme_color": "#ffffff",
+  "description": "Davids personal website.",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/img/favicon-android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/favicon-android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
